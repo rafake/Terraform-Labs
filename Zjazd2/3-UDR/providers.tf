@@ -13,7 +13,7 @@ terraform {
 
 provider "azurerm" {
   features { }
-  subscription_id = "72ae933f-dab5-4a35-861e-1db14caba401"
+  subscription_id = "53d60844-4bdb-410f-a330-2fa78aa5ca81"
 }
 
 provider "azuread" {
