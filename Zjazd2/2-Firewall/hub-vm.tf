@@ -78,10 +78,3 @@ resource "azurerm_virtual_machine" "hub-vnet-vm" {
   }
 }
 
-resource "azurerm_managed_disk" "hub-vm-disk" {
-  create_option = "Empty"
-  location = data.azurerm_resource_group.main_rg.location
-  resource_group_name = data.azurerm_resource_group.main_rg.name
-  storage_account_type = "Standard_LRS"
-}
-

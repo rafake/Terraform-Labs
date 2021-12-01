@@ -40,7 +40,6 @@ resource "azurerm_virtual_machine" "spoke-vnet-vm" {
   }
 
   storage_os_disk {
-    managed_disk_id   = azurerm_managed_disk.spoke-vm-disk.id
     name              = "spoke-vm-disk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
