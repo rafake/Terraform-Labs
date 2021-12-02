@@ -18,3 +18,11 @@ resource "azurerm_postgresql_server" "postgres-raf" {
   ssl_enforcement_enabled          = true
   ssl_minimal_tls_version_enforced = "TLS1_2"
 }
+
+resource "azurerm_postgresql_virtual_network_rule" "postgres-raf-vnet-rule" {
+  name                                 = "postgres-raf-vnet-rule"
+  resource_group_name                  = azurerm_resource_group.rg-raf.name
+  server_name                          = azurerm_postgresql_server.postgres-raf.name
+  subnet_id                            = azurerm_subnet.vnet-rg-raf-postgres-subnet.id
+  ignore_missing_vnet_service_endpoint = true
+}
