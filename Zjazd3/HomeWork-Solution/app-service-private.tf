@@ -54,7 +54,7 @@ resource "azurerm_private_endpoint" "aps-mf-dev-01-pe" {
 
 #TODO: mifurm, dodaję wpis DNS dla pierwszego AppService
 resource "azurerm_private_dns_a_record" "aps-mf-dev-01-pe-dns-a-record" {
-  name = azurerm_app_service.app-mf-appdev01.name
+  name = lower(azurerm_app_service.app-mf-appdev01.name)
   #substr(azurerm_private_endpoint.aps-mf-dev-01-pe.custom_dns_configs[0].fqdn, 0, 23)
   zone_name           = azurerm_private_dns_zone.privatelink-azurewebsites-net.name
   resource_group_name = azurerm_resource_group.netops-prd-dns.name
@@ -79,7 +79,7 @@ resource "azurerm_private_endpoint" "aps-mf-dev-02-pe" {
 
 #TODO: mifurm, dodaję wpis DNS dla drugiego AppService
 resource "azurerm_private_dns_a_record" "aps-mf-dev-02-pe-dns-a-record" {
-  name = azurerm_app_service.app-mf-appdev02.name
+  name = lower(azurerm_app_service.app-mf-appdev02.name)
   #substr(azurerm_private_endpoint.aps-mf-dev-01-pe.custom_dns_configs[0].fqdn, 0, 23)
   zone_name           = azurerm_private_dns_zone.privatelink-azurewebsites-net.name
   resource_group_name = azurerm_resource_group.netops-prd-dns.name

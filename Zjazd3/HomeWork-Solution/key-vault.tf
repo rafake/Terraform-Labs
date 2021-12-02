@@ -15,7 +15,7 @@ resource "azurerm_key_vault" "kv-mf-dev-01" {
     ]
 
     secret_permissions = [
-      "Get", "Set", "Delete", "List"
+      "Get", "Set", "Delete", "List", "Purge"
     ]
 
     storage_permissions = [

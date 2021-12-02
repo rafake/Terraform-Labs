@@ -11,7 +11,7 @@ resource "azurerm_app_service_plan" "aps-mf-dev-01" {
   }
 }
 
-resource "azurerm_app_service" "app-mf-appdev01" {
+resource "azurerm_app_service" "app-mf-appdev01-raf" {
   name                = var.app-serv-name
   location            = azurerm_resource_group.main_rg.location
   resource_group_name = azurerm_resource_group.main_rg.name
@@ -24,7 +24,7 @@ resource "azurerm_app_service" "app-mf-appdev01" {
   }
 }
 
-resource "azurerm_app_service" "app-mf-appdev02" {
+resource "azurerm_app_service" "app-mf-appdev02-raf" {
   name                = "${var.app-serv-name}-${local.studentPrefix}"
   location            = azurerm_resource_group.main_rg.location
   resource_group_name = azurerm_resource_group.main_rg.name

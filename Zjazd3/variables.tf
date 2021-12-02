@@ -1,11 +1,11 @@
 variable "sub-id" {
   type = string
-  default = "ffca029c-a6e3-4630-9dfc-ff43256cd2f8"
+  default = "53d60844-4bdb-410f-a330-2fa78aa5ca81"
 }
 
 variable "rg-name" {
   type = string
-  default = "tf-st60-rg"
+  default = "LabRG_RKMRG"
 }
 
 variable "app-serv-name" {
@@ -15,7 +15,7 @@ variable "app-serv-name" {
 
 variable "key-vault-name" {
     type = string
-    default = "kv-mf-dev-01"
+    default = "kv-mf-dev-01-raf"
 }
 
 variable "function-storage-name" {

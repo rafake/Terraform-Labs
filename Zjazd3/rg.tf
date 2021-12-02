@@ -1,6 +1,6 @@
 locals {
   location = "westeurope"
-  studentPrefix = "st60"
+  studentPrefix = "rafal"
   tags = {
     "env"  = "dev"
     "task" = "zjazd3"

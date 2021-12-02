@@ -28,7 +28,7 @@ resource "azurerm_linux_virtual_machine" "VM-WFE01-DEV" {
     
     disable_password_authentication = false
     admin_username                  = "mifurm"
-    admin_password                  = "pobierzSobieHasloZKeyVault"
+    admin_password                  = "pobierz3_SobieHasloZKeyVault"
 
     network_interface_ids = [
         azurerm_network_interface.VM-WFE01-DEV-NIC.id,
