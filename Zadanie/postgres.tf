@@ -14,7 +14,7 @@ resource "azurerm_postgresql_server" "postgres-raf" {
   geo_redundant_backup_enabled = true
   auto_grow_enabled            = true
 
-  public_network_access_enabled    = false
+  public_network_access_enabled    = true
   ssl_enforcement_enabled          = true
   ssl_minimal_tls_version_enforced = "TLS1_2"
 }
