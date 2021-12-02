@@ -1,28 +1,28 @@
 
-# resource "azurerm_app_service_plan" "aps-mf-dev-01" {
-#   name                = "aps-mf-dev-01"
-#   location            = azurerm_resource_group.appservice-dev.location
-#   resource_group_name = azurerm_resource_group.appservice-dev.name
+resource "azurerm_app_service_plan" "aps-mf-dev-01" {
+  name                = "aps-mf-dev-01"
+  location            = azurerm_resource_group.appservice-dev.location
+  resource_group_name = azurerm_resource_group.appservice-dev.name
 
-#   sku {
-#     #TODO: mifurm, Private Endpoint dla AppService są tylko w planie Premium, wybieram więc najmniejszą wersję P1v2
-#     tier     = "PremiumV2"
-#     size     = "P1v2"
-#     capacity = 1
-#   }
-# }
+  sku {
+    #TODO: mifurm, Private Endpoint dla AppService są tylko w planie Premium, wybieram więc najmniejszą wersję P1v2
+    tier     = "PremiumV2"
+    size     = "P1v2"
+    capacity = 1
+  }
+}
 
-# resource "azurerm_app_service" "app-mf-appdev01" {
-#   name                = "${random_string.mifurm-rand-prefix.result}-appdev01-${local.studentPrefix}"
-#   location            = azurerm_resource_group.appservice-dev.location
-#   resource_group_name = azurerm_resource_group.appservice-dev.name
-#   app_service_plan_id = azurerm_app_service_plan.aps-mf-dev-01.id
+resource "azurerm_app_service" "app-mf-appdev01" {
+  name                = "${random_string.mifurm-rand-prefix.result}-appdev01-${local.studentPrefix}"
+  location            = azurerm_resource_group.appservice-dev.location
+  resource_group_name = azurerm_resource_group.appservice-dev.name
+  app_service_plan_id = azurerm_app_service_plan.aps-mf-dev-01.id
 
-#   app_settings = {
-#     "WEBSITE_DNS_SERVER" : "168.63.129.16",
-#     "WEBSITE_VNET_ROUTE_ALL" : "1"
-#     "ENVNAME" : "app-mf-appdev01"
-#   }
+  app_settings = {
+    "WEBSITE_DNS_SERVER" : "168.63.129.16",
+    "WEBSITE_VNET_ROUTE_ALL" : "1"
+    "ENVNAME" : "app-mf-appdev01"
+  }
 # }
 
 # resource "azurerm_app_service" "app-mf-appdev02" {
