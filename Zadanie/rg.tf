@@ -31,8 +31,8 @@ resource "azurerm_resource_group" "main_rg" {
 #{PREFIX}-NETOPS-PRD-SPOKE dla sieci SPOKE środowiska PRD
 #{PREFIX}-NETOPS-DNS dla usług DNS
 #{PREFIX}-VM-DEV dla maszyn środowiska DEV
-resource "azurerm_resource_group" "vnet-rg-raf" {
-  name     = format("vnet-rg-raf", formatdate("hhmmss", timestamp))
+resource "azurerm_resource_group" "rg-raf" {
+  name     = "rg-raf"
   location = local.location
   tags     = local.tags
 }

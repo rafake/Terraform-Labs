@@ -1,5 +1,5 @@
-resource "azurerm_virtual_network" "vnet-hub" {
-  name                = "vnet-hub"
+resource "azurerm_virtual_network" "vnet-rg-raf" {
+  name                = "vnet-rg-raf"
   location            = azurerm_resource_group.vnet-rg-raf.location
   resource_group_name = azurerm_resource_group.vnet-rg-raf.name
   address_space       = ["10.0.0.0/16"]
@@ -21,13 +21,40 @@ resource "azurerm_virtual_network" "vnet-hub" {
 # }
 
 #TODO: mifurm, zmieniam przypisanie subnet'u do sieci spoke i zmieniam adresacje
-resource "azurerm_subnet" "vnet-rg-raf-private-app-service-subnet" {
-  name                                           = "app-service-subnet"
-  virtual_network_name                           = azurerm_virtual_network.vnet-hub.name
-  resource_group_name                            = azurerm_resource_group.vnet-rg-raf.name
+resource "azurerm_subnet" "vnet-rg-raf-app-service-env-subnet" {
+  name                                           = "vnet-rg-raf-app-service-env-subnet"
+  virtual_network_name                           = azurerm_virtual_network.vnet-rg-raf.name
+  resource_group_name                            = azurerm_resource_group.rg-raf.name
   enforce_private_link_endpoint_network_policies = true
   enforce_private_link_service_network_policies  = false
-  address_prefixes                               = ["10.100.0.0/24"]
+  address_prefixes                               = ["10.100.1.0/24"]
+}
+
+resource "azurerm_subnet" "vnet-rg-raf-postgres-subnet" {
+  name                                           = "vnet-rg-raf-postgres-subnet"
+  virtual_network_name                           = azurerm_virtual_network.vnet-rg-raf.name
+  resource_group_name                            = azurerm_resource_group.rg-raf.name
+  enforce_private_link_endpoint_network_policies = true
+  enforce_private_link_service_network_policies  = false
+  address_prefixes                               = ["10.100.2.0/24"]
+}
+
+resource "azurerm_subnet" "vnet-rg-raf-redis-subnet" {
+  name                                           = "vnet-rg-raf-redis-subnet"
+  virtual_network_name                           = azurerm_virtual_network.vnet-rg-raf.name
+  resource_group_name                            = azurerm_resource_group.rg-raf.name
+  enforce_private_link_endpoint_network_policies = true
+  enforce_private_link_service_network_policies  = false
+  address_prefixes                               = ["10.100.3.0/24"]
+}
+
+resource "azurerm_subnet" "vnet-rg-raf-lb-vm-subnet" {
+  name                                           = "vnet-rg-raf-lb-vm-subnet"
+  virtual_network_name                           = azurerm_virtual_network.vnet-rg-raf.name
+  resource_group_name                            = azurerm_resource_group.rg-raf.name
+  enforce_private_link_endpoint_network_policies = true
+  enforce_private_link_service_network_policies  = false
+  address_prefixes                               = ["10.100.4.0/24"]
 }
 
 # #TODO: mifurm, zmieniam przypisanie subnet'u do sieci spoke i zmieniam adresacje
